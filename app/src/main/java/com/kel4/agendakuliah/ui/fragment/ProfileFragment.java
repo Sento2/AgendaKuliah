@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.ui.fragment;
+package com.kel4.agendakuliah.ui.fragment;
 
 import android.os.Bundle;
 import android.view.*;
@@ -6,8 +6,8 @@ import androidx.annotation.*;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.f55124091.agendakuliah.databinding.FragmentProfileBinding;
-import com.f55124091.agendakuliah.viewmodel.TaskViewModel;
+import com.kel4.agendakuliah.databinding.FragmentProfileBinding;
+import com.kel4.agendakuliah.viewmodel.TaskViewModel;
 
 public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;

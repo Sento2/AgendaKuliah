@@ -1,12 +1,12 @@
-package com.f55124091.agendakuliah.database;
+package com.kel4.agendakuliah.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.f55124091.agendakuliah.model.Task;
-import com.f55124091.agendakuliah.model.User;
+import com.kel4.agendakuliah.model.Task;
+import com.kel4.agendakuliah.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +14,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "agenda_kuliah.db";
     private static final int DB_VERSION = 1;
 
-    // Tabel users
     public static final String TABLE_USERS = "users";
     public static final String COL_USER_ID = "id";
     public static final String COL_USER_NAME = "username";
     public static final String COL_USER_PASS = "password";
     public static final String COL_USER_EMAIL = "email";
 
-    // Tabel tasks
     public static final String TABLE_TASKS = "tasks";
     public static final String COL_TASK_ID = "id";
     public static final String COL_TASK_TITLE = "title";
@@ -63,7 +61,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // CRUD Users
     public boolean registerUser(String username, String password, String email) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -91,7 +88,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    // CRUD Tasks
     public long addTask(Task task) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -154,18 +150,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int rows = db.delete(TABLE_TASKS, COL_TASK_ID + "=?", new String[]{String.valueOf(taskId)});
         db.close();
         return rows > 0;
-    }
-
-    public int countActiveTasks(int userId) { return countTasksByStatus(userId, 0); }
-    public int countDoneTasks(int userId) { return countTasksByStatus(userId, 1); }
-
-    private int countTasksByStatus(int userId, int isDone) {
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_TASKS + " WHERE " + COL_TASK_USER_ID + "=? AND " + COL_TASK_DONE + "=?",
-                new String[]{String.valueOf(userId), String.valueOf(isDone)});
-        int count = 0;
-        if (c.moveToFirst()) count = c.getInt(0);
-        c.close(); db.close();
-        return count;
     }
 }

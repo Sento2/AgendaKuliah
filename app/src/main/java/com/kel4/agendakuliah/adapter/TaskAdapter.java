@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.adapter;
+package com.kel4.agendakuliah.adapter;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.f55124091.agendakuliah.databinding.ItemTaskBinding;
-import com.f55124091.agendakuliah.model.Task;
+import com.kel4.agendakuliah.databinding.ItemTaskBinding;
+import com.kel4.agendakuliah.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     private List<Task> tasks = new ArrayList<>();
-    private final boolean isDoneTab; // Mode tab selesai
+    private final boolean isDoneTab;
     private final OnTaskActionListener listener;
 
     public TaskAdapter(OnTaskActionListener listener, boolean isDoneTab) {
@@ -64,7 +64,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             b.tvTaskCourse.setText(task.getCourse());
             b.tvTaskDeadline.setText("Deadline: " + task.getDeadline());
 
-            // Warna strip prioritas
             switch (task.getPriority()) {
                 case 3:
                     b.viewPriority.setBackgroundColor(Color.parseColor("#EA4335"));
@@ -77,7 +76,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                     break;
             }
 
-            // Sembunyikan tombol centang & edit jika tab selesai
             if (isDoneTab) {
                 b.btnDone.setVisibility(View.GONE);
                 b.btnEdit.setVisibility(View.GONE);

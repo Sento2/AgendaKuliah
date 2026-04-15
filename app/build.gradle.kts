@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.f55124091.agendakuliah"
+    namespace = "com.kel4.agendakuliah"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.f55124091.agendakuliah"
+        applicationId = "com.kel4.agendakuliah"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

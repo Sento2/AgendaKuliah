@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.ui;
+package com.kel4.agendakuliah.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,9 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.f55124091.agendakuliah.databinding.ActivityLoginBinding;
-import com.f55124091.agendakuliah.model.User;
-import com.f55124091.agendakuliah.viewmodel.AuthViewModel;
+import com.kel4.agendakuliah.databinding.ActivityLoginBinding;
+import com.kel4.agendakuliah.viewmodel.AuthViewModel;
 
 public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
@@ -21,17 +20,15 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Cek apakah sudah login sebelumnya
         SharedPreferences prefs = getSharedPreferences("auth", MODE_PRIVATE);
         int savedUserId = prefs.getInt("user_id", -1);
         if (savedUserId != -1) {
-            goToMain(prefs.getInt("user_id", -1), prefs.getString("username", ""));
+            goToMain(savedUserId, prefs.getString("username", ""));
             return;
         }
 
         authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
 
-        // Observe hasil login
         authViewModel.getLoginResult().observe(this, user -> {
             if (user != null) {
                 prefs.edit()

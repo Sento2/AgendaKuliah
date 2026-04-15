@@ -1,20 +1,20 @@
-package com.f55124091.agendakuliah.ui;
+package com.kel4.agendakuliah.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
-import com.f55124091.agendakuliah.R;
-import com.f55124091.agendakuliah.databinding.ActivityMainBinding;
-import com.f55124091.agendakuliah.ui.fragment.ActiveTaskFragment;
-import com.f55124091.agendakuliah.ui.fragment.DoneTaskFragment;
-import com.f55124091.agendakuliah.ui.fragment.ProfileFragment;
-import com.f55124091.agendakuliah.viewmodel.TaskViewModel;
+import com.kel4.agendakuliah.R;
+import com.kel4.agendakuliah.databinding.ActivityMainBinding;
+import com.kel4.agendakuliah.ui.fragment.ActiveTaskFragment;
+import com.kel4.agendakuliah.ui.fragment.DoneTaskFragment;
+import com.kel4.agendakuliah.ui.fragment.ProfileFragment;
+import com.kel4.agendakuliah.viewmodel.TaskViewModel;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                // Sembunyikan FAB di fragment Profil (index 2)
                 if (position == 2) {
                     binding.fabAdd.hide();
                     binding.fabSwitchLayout.hide();
@@ -83,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        // Hapus menu switch layout dari toolbar karena sudah pindah ke FAB
         menu.findItem(R.id.action_switch_layout).setVisible(false);
         return true;
     }

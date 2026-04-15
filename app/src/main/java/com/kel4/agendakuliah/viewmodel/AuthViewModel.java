@@ -1,12 +1,12 @@
-package com.f55124091.agendakuliah.viewmodel;
+package com.kel4.agendakuliah.viewmodel;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import com.f55124091.agendakuliah.database.DatabaseHelper;
-import com.f55124091.agendakuliah.model.User;
+import com.kel4.agendakuliah.database.DatabaseHelper;
+import com.kel4.agendakuliah.model.User;
 import java.util.concurrent.Executors;
 
 public class AuthViewModel extends AndroidViewModel {

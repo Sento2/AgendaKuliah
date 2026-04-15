@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.model;
+package com.kel4.agendakuliah.model;
 
 public class User {
     private int id;

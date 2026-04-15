@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.ui;
+package com.kel4.agendakuliah.ui;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -9,9 +9,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.f55124091.agendakuliah.databinding.DialogTaskBinding;
-import com.f55124091.agendakuliah.model.Task;
-import com.f55124091.agendakuliah.viewmodel.TaskViewModel;
+import com.kel4.agendakuliah.databinding.DialogTaskBinding;
+import com.kel4.agendakuliah.model.Task;
+import com.kel4.agendakuliah.viewmodel.TaskViewModel;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -62,7 +62,6 @@ public class TaskDialogFragment extends DialogFragment {
             editTask.setUserId(userId);
         }
 
-        // Setup Date Picker
         binding.edtDeadline.setOnClickListener(v -> showDatePicker());
 
         String dialogTitle = isEdit ? "Edit Tugas" : "Tambah Tugas";

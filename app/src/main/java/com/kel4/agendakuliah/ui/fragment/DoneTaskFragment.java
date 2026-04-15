@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.ui.fragment;
+package com.kel4.agendakuliah.ui.fragment;
 
 import android.os.Bundle;
 import android.view.*;
@@ -8,10 +8,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.f55124091.agendakuliah.adapter.TaskAdapter;
-import com.f55124091.agendakuliah.databinding.FragmentDoneTaskBinding;
-import com.f55124091.agendakuliah.model.Task;
-import com.f55124091.agendakuliah.viewmodel.TaskViewModel;
+import com.kel4.agendakuliah.adapter.TaskAdapter;
+import com.kel4.agendakuliah.databinding.FragmentDoneTaskBinding;
+import com.kel4.agendakuliah.model.Task;
+import com.kel4.agendakuliah.viewmodel.TaskViewModel;
 
 public class DoneTaskFragment extends Fragment implements TaskAdapter.OnTaskActionListener {
     private FragmentDoneTaskBinding binding;
@@ -35,12 +35,11 @@ public class DoneTaskFragment extends Fragment implements TaskAdapter.OnTaskActi
     @Override
     public void onViewCreated(@NonNull View view, Bundle s) {
         super.onViewCreated(view, s);
-        adapter = new TaskAdapter(this, true); // true = mode selesai
+        adapter = new TaskAdapter(this, true);
         binding.rvDoneTasks.setAdapter(adapter);
 
         taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
-        // Observe layout mode (List vs Grid)
         taskViewModel.getIsGridView().observe(getViewLifecycleOwner(), isGrid -> {
             if (isGrid) {
                 binding.rvDoneTasks.setLayoutManager(new GridLayoutManager(getContext(), 2));

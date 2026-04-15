@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah.ui.fragment;
+package com.kel4.agendakuliah.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.f55124091.agendakuliah.adapter.TaskAdapter;
-import com.f55124091.agendakuliah.databinding.FragmentActiveTaskBinding;
-import com.f55124091.agendakuliah.model.Task;
-import com.f55124091.agendakuliah.ui.TaskDialogFragment;
-import com.f55124091.agendakuliah.viewmodel.TaskViewModel;
+import com.kel4.agendakuliah.adapter.TaskAdapter;
+import com.kel4.agendakuliah.databinding.FragmentActiveTaskBinding;
+import com.kel4.agendakuliah.model.Task;
+import com.kel4.agendakuliah.ui.TaskDialogFragment;
+import com.kel4.agendakuliah.viewmodel.TaskViewModel;
 
 public class ActiveTaskFragment extends Fragment implements TaskAdapter.OnTaskActionListener {
     private static final String ARG_USER_ID = "user_id";
@@ -50,10 +50,8 @@ public class ActiveTaskFragment extends Fragment implements TaskAdapter.OnTaskAc
         adapter = new TaskAdapter(this, false);
         binding.rvActiveTasks.setAdapter(adapter);
 
-        // Gunakan requireActivity() agar mendapatkan instance ViewModel yang sama dengan MainActivity
         taskViewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
         
-        // Observe perubahan mode layout (List vs Grid)
         taskViewModel.getIsGridView().observe(getViewLifecycleOwner(), isGrid -> {
             if (isGrid) {
                 binding.rvActiveTasks.setLayoutManager(new GridLayoutManager(getContext(), 2));

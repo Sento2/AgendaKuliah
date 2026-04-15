@@ -1,4 +1,4 @@
-package com.f55124091.agendakuliah;
+package kelompok4.AgendaKuliah.agendakuliah;
 
 import org.junit.Test;
 

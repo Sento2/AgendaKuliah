@@ -1,12 +1,12 @@
-package com.f55124091.agendakuliah.ui;
+package com.kel4.agendakuliah.ui;
 
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.f55124091.agendakuliah.databinding.ActivityRegisterBinding;
-import com.f55124091.agendakuliah.viewmodel.AuthViewModel;
+import com.kel4.agendakuliah.databinding.ActivityRegisterBinding;
+import com.kel4.agendakuliah.viewmodel.AuthViewModel;
 
 public class RegisterActivity extends AppCompatActivity {
     private ActivityRegisterBinding binding;

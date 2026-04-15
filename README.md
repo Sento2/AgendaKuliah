@@ -25,11 +25,11 @@
 
 ## Struktur Project
 
-*   `com.f55124091.agendakuliah.ui`: Berisi aktivitas utama dan adapter ViewPager.
-*   `com.f55124091.agendakuliah.ui.fragment`: Berisi fragment untuk Tugas Aktif, Selesai, dan Profil.
-*   `com.f55124091.agendakuliah.viewmodel`: Mengelola logika data dan interaksi dengan database.
-*   `com.f55124091.agendakuliah.model`: Definisi objek data (User dan Task).
-*   `com.f55124091.agendakuliah.database`: Logika operasi database SQLite.
+*   `com.kel4.agendakuliah.ui`: Berisi aktivitas utama dan adapter ViewPager.
+*   `com.kel4.agendakuliah.ui.fragment`: Berisi fragment untuk Tugas Aktif, Selesai, dan Profil.
+*   `com.kel4.agendakuliah.viewmodel`: Mengelola logika data dan interaksi dengan database.
+*   `com.kel4.agendakuliah.model`: Definisi objek data (User dan Task).
+*   `com.kel4.agendakuliah.database`: Logika operasi database SQLite.
 
 ## Cara Instalasi
 
